@@ -296,7 +296,7 @@ def main_unsupervised(sess,get_data_factors,place_holder_set,res_data,input_laye
         # FLAGS.pretraining_epochs * num_train
 
 
-        for step in range(1):#FLAGS.pretraining_epochs * num_train):
+        for step in range(FLAGS.pretraining_epochs * num_train):
           batch_data= get_batch(sess,get_data_factors[0],get_data_factors[1],get_data_factors[2])
           date, traffic_input, targets = prepare_feed_data(batch_data)
           _,loss_value = sess.run([train_op, loss],feed_dict={place_holder_set[0]:traffic_input,place_holder_set[1]:targets,place_holder_set[2]:True})
